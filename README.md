@@ -43,37 +43,6 @@ GET /api/reports/referrals - Referral relationships
 
 GET /api/reports/latest-login - Latest login per user
 
-### Health Check
-GET /api/health - Server and database status
-
-## Installation
-Clone the repository
-
-bash
-git clone https://github.com/Charelcano/LAB4.git
-cd lab-auth-joins
-Install dependencies
-
-bash
-npm install
-Set up environment variables
-
-bash
-cp .env.example .env
-Edit .env with your database credentials:
-
-## text
-DB_HOST=localhost
-
-DB_USER=root
-
-DB_PASSWORD=your_password
-
-DB_NAME=lab_auth
-
-DB_PORT=3306
-
-JWT_SECRET=your_jwt_secret
 
 # SERVER_PORT=3000
 
