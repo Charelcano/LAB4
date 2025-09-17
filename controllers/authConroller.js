@@ -5,8 +5,12 @@ const { v4: uuidv4 } = require('uuid');
 
 function signToken(user) {
   const jti = uuidv4().replace(/-/g, '').slice(0, 32);
-  const payload = { sub: user.id, email: user.email, role: user.role || 'student', jti };
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: process.env.JWT_EXPIRES || '1h' });
+  const payload = { 
+    sub: user.id, 
+    email: user.email, 
+    role: user.role || 'student', jti };
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { 
+    expiresIn: process.env.JWT_EXPIRES || '1h' });
   return { token, jti };
 }
 

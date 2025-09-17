@@ -5,6 +5,7 @@ const app = express();
 const port = 3000;
 const db = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
+const reportRoutes = require('./routes/reportRoutes');  // ← UNCOMMENT THIS
 
 app.use(express.json());
 app.use(cors());
@@ -15,11 +16,14 @@ app.get("/api/health", (req, res) => {
   res.json({ status: 'ok', db: dbStatus, time: new Date().toISOString() });
 });
 
-//Routes
-//const authRoutes = require('./routes/authRoutes');
-
+// Routes
 app.use("/api", authRoutes);
+app.use('/api', reportRoutes);  // ← UNCOMMENT THIS & MOVE HERE
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+
+// REMOVE THESE LINES FROM THE BOTTOM:
+// const reportRoutes = require('./routes/reportRoutes');
+// app.use('/api', reportRoutes);
